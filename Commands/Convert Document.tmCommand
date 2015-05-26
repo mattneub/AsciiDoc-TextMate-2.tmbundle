@@ -9,39 +9,18 @@
 	<key>command</key>
 	<string>#!/usr/bin/env ruby
 
-require 'fileutils'
-
-f = ENV['TM_FILEPATH']
-fdir = File.dirname(f)
-fbase = File.basename(f, File.extname(f))
-f2 = ENV['HOME'] + '/Desktop/asciidocOutput/'
-FileUtils.mkdir(f2) unless File.exist?(f2)
-f2 = f2 + fbase + '.html'
-ad = '/usr/local/bin/asciidoc'
-# blap - let's use cutting edge instead
-# ad = ENV['HOME'] + '/asciidocCuttingEdge/asciidoc/asciidoc.py'
-s = %{#{ad} --verbose -a stylesheet=stylesheets/extra.css -a quirks! -a data-uri -o "#{f2}" }
-s = s + %{"#{f}"}
-
-=begin
-puts "&lt;pre&gt;"
-puts "Converting #{f}..."
-require 'open3'
-Open3.popen2e(s) do |i,o,t|
-  o.sync = true
-  while o.gets # not helping, might as well just o.read
-    puts $_
-  end
-end
-puts "&lt;/pre&gt;"
-=end
-
+require 'tmpdir'
 require 'shellwords'
-a = s.shellsplit
-require "#{ENV['TM_SUPPORT_PATH']}/lib/tm/executor"
-TextMate::Executor.run(*a, :use_hashbang =&gt; false, :verb =&gt; "Converting")
 
-`open "#{f2}"`
+require "#{ENV['TM_SUPPORT_PATH']}/lib/tm/executor"
+
+fsource = ENV['TM_FILEPATH']
+fdest = (Dir::Tmpname.create('asciidocout') { }) + '.html'
+ad = e_sh(ENV['TM_ASCIIDOC'] || 'asciidoc')
+
+TextMate::Executor.run(ad, '--verbose', '-a', 'quirks!', '-a', 'data-uri',
+  '-o', fdest, fsource, :use_hashbang =&gt; false, :verb =&gt; "Converting")
+`open "#{fdest}"`
 </string>
 	<key>input</key>
 	<string>document</string>
