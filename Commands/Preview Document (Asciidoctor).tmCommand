@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>saveActiveFile</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby
+
+require 'fileutils'
+require 'asciidoctor'
+
+f = ENV['TM_FILEPATH']
+fdir = File.dirname(f)
+fbase = File.basename(f, File.extname(f))
+f2 = ENV['HOME'] + '/Desktop/asciidocOutput/'
+FileUtils.mkdir(f2) unless File.exist?(f2)
+f2 = f2 + fbase + '.html'
+
+
+# this is what we would want to say in ruby; note that unsafe is necessary
+# Asciidoctor.render_file(f, {:header_footer =&gt; true, :safe =&gt; 'unsafe', :to_file =&gt; f2})
+
+# however, TextMate gives us nice output if we pass through the command-line
+# and in that case unsafe is the default and so is header_footer
+
+ad = '/usr/local/bin/asciidoctor'
+s = %{#{ad} --verbose -a data-uri -o "#{f2}" }
+s = s + %{"#{f}"}
+
+require 'shellwords'
+a = s.shellsplit
+require "#{ENV['TM_SUPPORT_PATH']}/lib/tm/executor"
+TextMate::Executor.run(*a, :use_hashbang =&gt; false, :verb =&gt; "Converting")
+
+# and show it in the browser
+`open "#{f2}"`
+</string>
+	<key>input</key>
+	<string>document</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>keyEquivalent</key>
+	<string>^H</string>
+	<key>name</key>
+	<string>Preview Document (Asciidoctor)</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>html</string>
+	<key>outputLocation</key>
+	<string>newWindow</string>
+	<key>scope</key>
+	<string>text.asciidoc</string>
+	<key>uuid</key>
+	<string>3A399F0A-5789-40D6-BE68-2A3A2775416C</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>
