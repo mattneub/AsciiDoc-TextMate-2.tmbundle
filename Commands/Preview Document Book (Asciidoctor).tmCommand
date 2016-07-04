@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>beforeRunningCommand</key>
-	<string>saveActiveFile</string>
+	<string>saveModifiedFiles</string>
 	<key>command</key>
 	<string>#!/usr/bin/env ruby
 
@@ -17,6 +17,7 @@ f2 = ENV['HOME'] + '/Desktop/asciidocOutput/'
 FileUtils.mkdir(f2) unless File.exist?(f2)
 f2 = f2 + fbase + '.html'
 
+# exactly the same as Preview Document (Asciidoctor) except for -dbook specification
 
 # this is what we would want to say in ruby; note that unsafe is necessary
 # Asciidoctor.render_file(f, {:header_footer =&gt; true, :safe =&gt; 'unsafe', :to_file =&gt; f2})
@@ -25,7 +26,7 @@ f2 = f2 + fbase + '.html'
 # and in that case unsafe is the default and so is header_footer
 
 ad = '/usr/local/bin/asciidoctor'
-s = %{#{ad} --verbose -a data-uri -a stylesheet=myasciidoctor.css -o "#{f2}" }
+s = %{#{ad} --verbose -dbook -a data-uri -a stylesheet=myasciidoctor.css -o "#{f2}" }
 s = s + %{"#{f}"}
 
 require 'shellwords'
@@ -43,7 +44,7 @@ TextMate::Executor.run(*a, :use_hashbang =&gt; false, :verb =&gt; "Converting")
 	<key>keyEquivalent</key>
 	<string>^H</string>
 	<key>name</key>
-	<string>Preview Document (Asciidoctor)</string>
+	<string>Preview Document Book (Asciidoctor)</string>
 	<key>outputCaret</key>
 	<string>afterOutput</string>
 	<key>outputFormat</key>
@@ -53,7 +54,7 @@ TextMate::Executor.run(*a, :use_hashbang =&gt; false, :verb =&gt; "Converting")
 	<key>scope</key>
 	<string>text.asciidoc</string>
 	<key>uuid</key>
-	<string>3A399F0A-5789-40D6-BE68-2A3A2775416C</string>
+	<string>DD26D323-6D59-4936-8247-FE306942B782</string>
 	<key>version</key>
 	<integer>2</integer>
 </dict>
