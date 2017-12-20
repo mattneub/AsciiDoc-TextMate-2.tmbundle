@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>pass:none[&lt;a data-type="indexterm" id="$1" data-primary="$2"&gt;&lt;/a&gt;]
+pass:none[&lt;a data-type="indexterm" data-startref="$1"&gt;&lt;/a&gt;]
+</string>
+	<key>disableAutoIndent</key>
+	<true/>
+	<key>name</key>
+	<string>Start (Asciidoctor)</string>
+	<key>scope</key>
+	<string>text.asciidoc</string>
+	<key>tabTrigger</key>
+	<string>start</string>
+	<key>uuid</key>
+	<string>F9EDAD38-E2E6-4D37-AADA-29554D4451F7</string>
+</dict>
+</plist>

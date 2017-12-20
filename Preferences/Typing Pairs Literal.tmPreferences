@@ -5,7 +5,7 @@
 	<key>name</key>
 	<string>Typing Pairs Literal</string>
 	<key>scope</key>
-	<string>text.asciidoc source, text.asciidoc string.literal</string>
+	<string>text.asciidoc source, text.asciidoc string.literal, text.asciidoc string.other.literal</string>
 	<key>settings</key>
 	<dict>
 		<key>smartTypingPairs</key>

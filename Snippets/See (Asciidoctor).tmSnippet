@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>pass:none[&lt;a data-type="indexterm" data-primary="$1" data-see="$2"&gt;&lt;/a&gt;]
+</string>
+	<key>disableAutoIndent</key>
+	<true/>
+	<key>name</key>
+	<string>See (Asciidoctor)</string>
+	<key>scope</key>
+	<string>text.asciidoc</string>
+	<key>tabTrigger</key>
+	<string>see</string>
+	<key>uuid</key>
+	<string>114300D2-9830-4B8A-B18E-260FC813F817</string>
+</dict>
+</plist>
