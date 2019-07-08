@@ -24,7 +24,10 @@ f2 = f2 + fbase + '.html'
 # however, TextMate gives us nice output if we pass through the command-line
 # and in that case unsafe is the default and so is header_footer
 
-ad = '/usr/local/bin/asciidoctor'
+# up to you to have correct asciidoctor in your TextMate PATH (puts ENV["PATH"] to see it)
+# for example mine is in ~/.rbenv/shims
+# yours might be in /usr/local/bin or in asciidoctor/bin folder somewhere
+ad = 'asciidoctor'
 s = %{#{ad} --verbose -a data-uri -a stylesheet=myasciidoctor.css -o "#{f2}" }
 s = s + %{"#{f}"}
 

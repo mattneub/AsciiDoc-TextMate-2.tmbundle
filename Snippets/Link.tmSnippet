@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>pass:[&lt;a href="${1:$TM_SELECTED_TEXT}" class="orm:hideurl"&gt;&lt;em class="hyperlink"&gt;$1&lt;/em&gt;&lt;/a&gt;]</string>
+	<key>disableAutoIndent</key>
+	<true/>
+	<key>keyEquivalent</key>
+	<string>@l</string>
+	<key>name</key>
+	<string>Link</string>
+	<key>scope</key>
+	<string>text.asciidoc</string>
+	<key>uuid</key>
+	<string>7B0C8161-E3D8-4F88-814D-A605CE1A3C27</string>
+</dict>
+</plist>
