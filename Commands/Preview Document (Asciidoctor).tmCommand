@@ -18,7 +18,9 @@ f2 = f2 + fbase + '.html'
 
 
 # this is what we would want to say in ruby; note that unsafe is necessary
+# 
 # require 'asciidoctor'
+# 
 # Asciidoctor.render_file(f, {:header_footer =&gt; true, :safe =&gt; 'unsafe', :to_file =&gt; f2})
 
 # however, TextMate gives us nice output if we pass through the command-line
