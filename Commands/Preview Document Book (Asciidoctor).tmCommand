@@ -27,7 +27,7 @@ f2 = f2 + fbase + '.html'
 # however, TextMate gives us nice output if we pass through the command-line
 # and in that case unsafe is the default and so is header_footer
 
-ad = '/usr/local/bin/asciidoctor'
+ad = 'asciidoctor'
 s = %{#{ad} --verbose -dbook -a data-uri -a stylesheet=myasciidoctor.css -o "#{f2}" }
 s = s + %{"#{f}"}
 
